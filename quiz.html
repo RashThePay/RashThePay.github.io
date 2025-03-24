@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="//fdn.fontcdn.ir">
+    <link rel="preconnect" href="//v1.fontapi.ir">
+    <link href="https://v1.fontapi.ir/css/Estedad" rel="stylesheet">
+    <title>کوییز شخصیت‌شناسی عصر ویکتوریا</title>
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* General body styling */
+        body {
+            font-family: 'Estedad', serif;
+            /* فونت کلاسیک و ویکتوریایی */
+            background: linear-gradient(to bottom, #3C2F2F, #1E1A1A);
+            /* گرادیانت تیره قهوه‌ای */
+            color: #E8D8A2;
+            /* رنگ طلایی کم‌رنگ برای متن */
+            direction: rtl;
+            padding: 40px;
+            line-height: 1.6;
+        }
+
+        /* Header styling */
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+            color: #D4A017;
+            /* طلایی پررنگ */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            border-bottom: 2px solid #D4A017;
+            padding-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #E8D8A2;
+        }
+
+        /* Form container */
+        #quizForm {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #4A3A2A;
+            /* قهوه‌ای چوبی تیره */
+            padding: 30px;
+            border: 3px solid #D4A017;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Question styling */
+        .question {
+            margin-bottom: 30px;
+            background: #5C4835;
+            /* قهوه‌ای متوسط */
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #8B6F47;
+            /* قهوه‌ای طلایی */
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .question h3 {
+            font-size: 1.5em;
+            color: #E8D8A2;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #D4A017;
+            padding-bottom: 5px;
+        }
+
+        /* Radio button labels */
+        label {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            font-size: 1.1em;
+            color: #E8D8A2;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        label:hover {
+            color: #D4A017;
+            /* تغییر رنگ به طلایی در هاور */
+        }
+
+        /* Custom radio buttons */
+        input[type="radio"] {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #D4A017;
+            border-radius: 50%;
+            margin-left: 10px;
+            background: #3C2F2F;
+            cursor: pointer;
+            position: relative;
+        }
+
+        input[type="radio"]:checked::after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: #D4A017;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Submit button */
+        button[type="submit"] {
+            display: block;
+            width: 200px;
+            margin: 30px auto 0;
+            padding: 15px;
+            background: #D4A017;
+            color: #1E1A1A;
+            font-size: 1.2em;
+            font-family: 'Cinzel', serif;
+            border: 2px solid #8B6F47;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button[type="submit"]:hover {
+            background: #E8D8A2;
+            transform: scale(1.05);
+        }
+
+        /* Result styling */
+        #result {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 1.3em;
+            color: #E8D8A2;
+            background: #5C4835;
+            padding: 20px;
+            border: 2px solid #D4A017;
+            border-radius: 8px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>شما در عصر ویکتوریا کدام گروه هستید؟</h1>
+    <p>به سوالات زیر با صداقت پاسخ دهید و گزینه‌ای را انتخاب کنید که بیشتر به شخصیت یا ترجیحات شما نزدیک است.</p>
+    <form id="quizForm">
+
+        <!-- سوال ۱ -->
+        <div class="question">
+            <h3>۱. وقتی با یک مشکل پیچیده روبه‌رو می‌شی، رویکردت چیه؟</h3>
+            <label>
+                <input type="radio" name="q1" value="lords+5 intell-2" required>
+                الف) اول سنت‌ها و روش‌های قدیمی رو بررسی می‌کنم تا ببینم جواب می‌دن یا نه.
+            </label>
+            <label>
+                <input type="radio" name="q1" value="capital+5 union-2">
+                ب) دنبال راه‌حل‌های عملی و سریع می‌گردم که الان جواب بده.
+            </label>
+            <label>
+                <input type="radio" name="q1" value="religious+5 petty-2">
+                ج) به اصول و ارزش‌های ثابت خودم تکیه می‌کنم و ازشون دفاع می‌کنم.
+            </label>
+            <label>
+                <input type="radio" name="q1" value="intell+5 lords-2">
+                د) خودم یه راه جدید و خلاقانه پیدا می‌کنم، حتی اگه ریسک داشته باشه.
+            </label>
+        </div>
+
+        <!-- سوال ۲ -->
+        <div class="question">
+            <h3>۲. توی یه پروژه تیمی، ترجیح می‌دی چه نقشی داشته باشی؟</h3>
+            <label>
+                <input type="radio" name="q2" value="mil+5 petty-2" required>
+                الف) رهبر باشم و همه رو هدایت کنم.
+            </label>
+            <label>
+                <input type="radio" name="q2" value="petty+5 lords-2">
+                ب) پشت صحنه کار کنم و مطمئن شم همه‌چیز رو روال پیش می‌ره.
+            </label>
+            <label>
+                <input type="radio" name="q2" value="capital+5 rural-2">
+                ج) تخصصم رو به کار بگیرم و روی یه بخش خاص تمرکز کنم.
+            </label>
+            <label>
+                <input type="radio" name="q2" value="union+5 mil-2">
+                د) با بقیه همکاری کنم تا همه با هم موفق بشیم.
+            </label>
+        </div>
+
+        <!-- سوال ۳ -->
+        <div class="question">
+            <h3>۳. آخر هفته‌ات رو چطور می‌گذرونی؟</h3>
+            <label>
+                <input type="radio" name="q3" value="rural+5 capital-2" required>
+                الف) توی یه جای آروم و دور از شلوغی استراحت می‌کنم.
+            </label>
+            <label>
+                <input type="radio" name="q3" value="intell+5 religious-2">
+                ب) می‌رم بیرون و چیزای جدید امتحان می‌کنم.
+            </label>
+            <label>
+                <input type="radio" name="q3" value="petty+5 mil-2">
+                ج) با دوستام یه برنامه ساده و صمیمی می‌چینم.
+            </label>
+            <label>
+                <input type="radio" name="q3" value="capital+5 rural-2">
+                د) روی یه پروژه شخصی کار می‌کنم که بعدا سود بده.
+            </label>
+        </div>
+
+        <!-- سوال ۴ -->
+        <div class="question">
+            <h3>۴. اگه بخوای یه بازی رو طراحی کنی، تم اصلیش چی می‌تونه باشه؟</h3>
+            <label>
+                <input type="radio" name="q4" value="lords+5 union-2" required>
+                الف) یه دنیای فانتزی با پادشاه‌ها و شوالیه‌ها.
+            </label>
+            <label>
+                <input type="radio" name="q4" value="capital+5 rural-2">
+                ب) یه شبیه‌ساز اقتصادی که باید بازار رو کنترل کنی.
+            </label>
+            <label>
+                <input type="radio" name="q4" value="mil+5 petty-2">
+                ج) یه بازی استراتژی نظامی با نبردهای بزرگ.
+            </label>
+            <label>
+                <input type="radio" name="q4" value="intell+5 lords-2">
+                د) یه پازل پیچیده که باید با فکر حلش کنی.
+            </label>
+        </div>
+
+        <!-- سوال ۵ -->
+        <div class="question">
+            <h3>۵. وقتی یه نفر توی بحث باهات مخالفت می‌کنه، چی کار می‌کنی؟</h3>
+            <label>
+                <input type="radio" name="q5" value="mil+5 union-2" required>
+                الف) محکم سر حرفم می‌مونم و سعی می‌کنم متقاعدش کنم.
+            </label>
+            <label>
+                <input type="radio" name="q5" value="petty+5 intell-2">
+                ب) گوش می‌دم و سعی می‌کنم یه نقطه مشترک پیدا کنم.
+            </label>
+            <label>
+                <input type="radio" name="q5" value="religious+5 capital-2">
+                ج) اگه با اصولم جور نباشه، کوتاه نمیام.
+            </label>
+            <label>
+                <input type="radio" name="q5" value="intell+5 lords-2">
+                د) اگه منطقش قوی باشه، ممکنه نظرم عوض شه.
+            </label>
+        </div>
+
+        <!-- سوال ۶ -->
+        <div class="question">
+            <h3>۶. توی یه موقعیت اضطراری، اولین واکنش تو چیه؟</h3>
+            <label>
+                <input type="radio" name="q6" value="lords+5 intell-2" required>
+                الف) از تجربه‌های قبلی استفاده می‌کنم تا یه راه‌حل مطمئن پیدا کنم.
+            </label>
+            <label>
+                <input type="radio" name="q6" value="mil+5 petty-2">
+                ب) سریع عمل می‌کنم و هر چی لازم باشه انجام می‌دم.
+            </label>
+            <label>
+                <input type="radio" name="q6" value="union+5 capital-2">
+                ج) با بقیه هماهنگ می‌شم تا با هم حلش کنیم.
+            </label>
+            <label>
+                <input type="radio" name="q6" value="rural+5 mil-2">
+                د) یه راه ساده و قابل اعتماد پیدا می‌کنم.
+            </label>
+        </div>
+
+        <!-- سوال ۷ -->
+        <div class="question">
+            <h3>۷. ترجیح می‌دی وقتت رو کجا بگذرونی؟</h3>
+            <label>
+                <input type="radio" name="q7" value="rural+5 capital-2" required>
+                الف) یه جای آروم و دور از شلوغی، مثل یه کلبه تو طبیعت.
+            </label>
+            <label>
+                <input type="radio" name="q7" value="capital+5 rural-2">
+                ب) یه شهر بزرگ و پرهیاهو با کلی فرصت جدید.
+            </label>
+            <label>
+                <input type="radio" name="q7" value="petty+5 mil-2">
+                ج) یه محله متوسط که همه همدیگه رو می‌شناسن.
+            </label>
+            <label>
+                <input type="radio" name="q7" value="religious+5 intell-2">
+                د) یه جای معنادار که حس عمق و هدف بده.
+            </label>
+        </div>
+
+        <!-- سوال ۸ -->
+        <div class="question">
+            <h3>۸. اگه بخوای یه مهارت جدید یاد بگیری، چی انتخاب می‌کنی؟</h3>
+            <label>
+                <input type="radio" name="q8" value="rural+5 intell-2" required>
+                الف) یه هنر سنتی مثل نجاری یا خیاطی.
+            </label>
+            <label>
+                <input type="radio" name="q8" value="capital+5 union-2">
+                ب) یه مهارت فنی مثل برنامه‌نویسی یا مهندسی.
+            </label>
+            <label>
+                <input type="radio" name="q8" value="mil+5 petty-2">
+                ج) یه مهارت نظامی مثل تیراندازی یا تاکتیک.
+            </label>
+            <label>
+                <input type="radio" name="q8" value="intell+5 rural-2">
+                د) یه زبان جدید یا فلسفه.
+            </label>
+        </div>
+
+        <!-- سوال ۹ -->
+        <div class="question">
+            <h3>۹. وقتی یه تصمیم بزرگ می‌گیری، بیشتر به چی اهمیت می‌دی؟</h3>
+            <label>
+                <input type="radio" name="q9" value="lords+5 intell-2" required>
+                الف) حفظ چیزایی که قبلا برام جواب داده.
+            </label>
+            <label>
+                <input type="radio" name="q9" value="capital+5 union-2">
+                ب) چیزی که بیشترین سود رو برام داشته باشه.
+            </label>
+            <label>
+                <input type="radio" name="q9" value="union+5 lords-2">
+                ج) چیزی که برای همه منصفانه باشه.
+            </label>
+            <label>
+                <input type="radio" name="q9" value="religious+5 mil-2">
+                د) چیزی که با ارزش‌هام سازگار باشه.
+            </label>
+        </div>
+
+        <!-- سوال ۱۰ -->
+        <div class="question">
+            <h3>۱۰. توی یه دنیای خیالی، ترجیح می‌دی چی باشی؟</h3>
+            <label>
+                <input type="radio" name="q10" value="lords+5 union-2" required>
+                الف) یه پادشاه یا نجیب‌زاده با قدرت و احترام.
+            </label>
+            <label>
+                <input type="radio" name="q10" value="capital+5 rural-2">
+                ب) یه تاجر موفق با کلی ثروت و نفوذ.
+            </label>
+            <label>
+                <input type="radio" name="q10" value="mil+5 petty-2">
+                ج) یه ژنرال که ارتش رو رهبری می‌کنه.
+            </label>
+            <label>
+                <input type="radio" name="q10" value="intell+5 lords-2">
+                د) یه متفکر که ایده‌هاش دنیا رو تغییر می‌ده.
+            </label>
+        </div>
+
+        <button type="submit">نتیجه رو ببین!</button>
+    </form>
+
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const scores = {
+                lords: 0, religious: 0, mil: 0, rural: 0,
+                capital: 0, petty: 0, intell: 0, union: 0
+            };
+
+            const formData = new FormData(this);
+            for (let [name, value] of formData) {
+                const changes = value.split(' ');
+                changes.forEach(change => {
+                    const [group, amount] = change.match(/([a-z]+)([+-]\d+)/).slice(1);
+                    scores[group] += parseInt(amount);
+                });
+            }
+
+            const result = Object.entries(scores).reduce((max, current) =>
+                current[1] > max[1] ? current : max, ['lords', -Infinity]
+            );
+
+            const resultsText = {
+                lords: 'اربابان: تو عاشق سنت‌ها و ساختن یه امپراتوری پایداری. یه استراتژیست کلاسیک!',
+                religious: 'مذهبیون: تو به نظم و ارزش‌های عمیق اهمیت می‌دی، حتی اگه بهشون برچسب مذهبی نزنی.',
+                mil: 'نیروهای مسلح: تو یه تاکتیک‌دان قهاری که عاشق کنترل و قدرتی.',
+                rural: 'روستاییان: تو آرامش طبیعت و زندگی ساده رو به هرج‌ومرج شهر ترجیح می‌دی.',
+                capital: 'سرمایه‌داران: تو یه ذهن اقتصادی داری که همیشه دنبال سود و پیشرفت تکنولوژیه.',
+                petty: 'خرده‌بورژوازی: تو تعادل و کار تیمی رو دوست داری و از افراط متنفری.',
+                intell: 'روشنفکران: تو یه متفکر خلاقی که عاشق ایده‌های بزرگ و تغییر دنیایی.',
+                union: 'اتحادیه کارگران: تو به عدالت و همکاری اهمیت می‌دی و از سیستم‌های ظالم بیزاری.'
+            };
+            const title = resultsText[result[0]].split(":")[0];
+            const text = resultsText[result[0]].split(": ")[1];
+            document.getElementById('result').innerHTML = `<h1>${title}</h1><p>${text}</p>`;
+            document.getElementById('result').scrollIntoView();
+        });
+    </script>
+</body>
+
+</html>
