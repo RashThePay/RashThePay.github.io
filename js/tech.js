@@ -8,7 +8,7 @@ function renderTech(data) {
             <div class="data-value" style="justify-content: space-between; align-items: end;">
                 
                 <div class="data-value" style="float:left">${new Intl.NumberFormat('fa-IR').format((data.academic.innovation).toFixed(2))}</div>
-               <div style="font-size: small; color: #333300; font-weight: normal;"> با این سرعت ${Math.ceil((100-data.academic.progress*100)/data.academic.innovation).toLocaleString("fa-IR")} سال دیگر به مدرنیته می‌رسیم.</div>
+               <div style="font-size: small; color: #333300; font-weight: normal;"> با این سرعت ${Math.ceil((500-data.academic.progress*500)/data.academic.innovation+5).toLocaleString("fa-IR")} سال دیگر به مدرنیته می‌رسیم.</div>
                 </div>
              
        
