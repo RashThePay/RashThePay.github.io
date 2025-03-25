@@ -8,10 +8,11 @@
     <link rel="icon" type="image/x-icon" href="./icons/number_of_countries.png">
     <link href="https://cdn.jsdelivr.net/npm/vazir-font@30.1.0/font-face.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sheetdb-js@1.0.3/build/sheetdb-js.min.js"></script>
     <style>
         body {
             font-family: 'Vazir', serif;
-            background: #f0e6d3 url('victorian-pattern.png');
+            background: #f0e6d3 url(https://www.transparenttextures.com/patterns/vichy.png);
             color: #3d2b1f;
         }
 
@@ -23,16 +24,25 @@
             max-width: 100dvw;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: auto;
+            grid-auto-flow: dense;
             gap: 20px;
             padding: 10px;
         }
 
         .section {
+            position: relative;
             background: #fffaf0;
             border-radius: 15px;
             padding: 10px 20px;
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .section>div:not(:first-child) {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .section-header {
@@ -47,27 +57,20 @@
             gap: 5px
         }
 
-        .icon-placeholder {
-            width: 40px;
-            height: 40px;
-            background: #ddd;
-            display: inline-block;
-            margin-left: 10px;
-            vertical-align: middle;
-        }
-
         .data-row {
-            margin: 10px 0;
+            margin: 5px 0;
             flex: 1;
         }
 
         .data-bg:hover {
             filter: brightness(0.95);
         }
+
         .data-label {
             display: flex;
             justify-content: space-between;
         }
+
         .data-label span {
             font-size: small;
             color: #8b7355;
@@ -80,7 +83,7 @@
             font-size: larger;
             font-weight: bold;
             display: flex;
-
+            align-items: center;
         }
 
         .data-bg {
@@ -90,60 +93,6 @@
             background: #f8f4e3;
             border-radius: 15px;
             transition: all 0.3s;
-        }
-
-        .bar-chart-container {
-            height: 400px;
-            margin: 20px 0;
-        }
-
-        .tabs-container {
-            max-width: 100%;
-        }
-
-        .tab-buttons {
-            display: flex;
-            background: #f8f4e3;
-
-            overflow: hidden;
-            border-radius: 8px;
-        }
-
-        .tab-btn {
-            flex: 1;
-            padding: 5px 0 5px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            background: transparent;
-            border: none;
-            font-family: 'Vazir';
-            color: #8b7355;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-
-        .tab-btn.active {
-            color: #3d2b1f;
-            font-weight: bolder;
-            background-color: #b8a48c;
-        }
-
-        .tab-btn:hover:not(.active) {
-            background: #d4c4b0;
-        }
-
-        .tab-content {
-            display: none;
-            width: 100%;
-            padding: 15px 0;
-            background: #fffaf0;
-        }
-
-        .tab-content.active {
-            display: block;
         }
 
         .progress-container {
@@ -193,76 +142,371 @@
             font-weight: bold;
             text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
         }
+
+        .price {
+            opacity: 0.5
+        }
+
+        .price-current {
+            opacity: 1
+        }
+
+        .price::before {
+            content: attr(data-title);
+            position: absolute;
+            top: -75%;
+            margin-right: 5px;
+            font-size: smaller;
+            max-width: 200px;
+        }
+
+        .price-mid::before {
+            top: 75%
+        }
+
+        .pops-container {
+            height: 700px;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            height: 40px;
+            overflow: hidden;
+            background-color: #f8f4e3;
+            ;
+        }
+
+        .card:hover {
+            height: 200px;
+            filter: brightness(0.95);
+        }
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            margin: 0 8px 0 16px;
+        }
+
+        .info {
+            flex-grow: 1;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .name {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .details {
+            flex: 1;
+            opacity: 0;
+            height: 0;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card:hover .details {
+            opacity: 1;
+            height: auto;
+        }
+
+        .bar {
+            height: 4px;
+            margin-top: 2px;
+            border-radius: 2px;
+        }
+
+        .population {
+            background: #9975BB;
+        }
+
+        .wealth {
+            background: #BB9975;
+        }
+
+        .happiness {
+            background: #22AA57;
+        }
+
+        .unhappiness {
+            background: #AA3737;
+        }
+
+        .influence {
+            background: #2196F3;
+        }
+
+        .value {
+            color: #666;
+        }
+
+        .groups-chart-container {
+            position: absolute;
+            transition: all 0.3s;
+            justify-self: anchor-center;
+            height: 275px;
+            width: 275px;
+        }
+
+        #group-chart {
+            transition: all 0.3s;
+
+        }
+
+        #group-chart:hover {
+            scale: 1.1
+        }
+
+        .group-image {
+            height: 275px;
+        }
+
+        .group-image img {
+            object-fit: cover;
+            height: 100%;
+            border-radius: 15px;
+        }
+
+        .decorative {
+            height: 100%;
+            width: 100%;
+            object-fit: fill;
+            transition: all 0.3s;
+        }
+
+        .decorative:hover {
+            scale: 1.1
+        }
+
+        .overlay {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100dvw;
+            height: 100dvh;
+            z-index: 1000;
+            background: #f0e6d3 url(https://www.transparenttextures.com/patterns/vichy.png);
+        }
+
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 5px solid #FFF;
+            border-bottom-color: #3d2b1f;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+        }
+
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .year-btn {
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 45px;
+            height: 45px;
+        }
+
+        .year-btn::before {
+            cursor: pointer;
+            content: " ";
+            display: block;
+            width: 45px;
+            height: 45px;
+            scale: 0.55;
+            background: url(./icons/arrow.png);
+            background-size: contain;
+        }
+
+        .year-btn.next-year::before {
+            transform: rotate(180deg)
+        }
+
+        .year-btn:hover {
+            filter: brightness(0.9);
+        }
+        .buildings-grid .building:not(:last-child) {
+            border-bottom: #8b735588 1px solid;
+            padding-bottom: 5px;
+            margin-top: 0px;
+        }
     </style>
 </head>
 
 <body>
+    <div class="overlay">
+        <span class="loader"></span>
+    </div>
     <h1 style="width: 100%; text-align: center; display: flex; align-items: center; justify-content: center; gap:10px">
         <img width="50" src="./icons/number_of_countries.png" />
         وضعیت کشور
     </h1>
+    <h2
+        style="width: 100%; text-align: center; font-size: 16px; display: flex; align-items: center; justify-content: center; gap:10px">
+        <a class="year-btn prev-year"></a>
+        <div id="year"></div><a class=" year-btn next-year"></a>
+    </h2>
     <div class="container">
         <!-- بخش دولت -->
-        <div class="section">
+        <div class="section" style="grid-row: span 10 / span 10;">
             <div class="section-header">
                 <img width="40" src="./icons/government_building_icon.png" />
                 حکومت
             </div>
             <div id="government-data"></div>
         </div>
-        <div class="section">
+        <div class="section" style="grid-row: span 10 / span 10;">
             <div class="section-header">
                 <img width="40" src="./icons/leading_interest_group_icon.png" />
                 گروه‌های سیاسی
             </div>
-            <div>
-                <canvas id="group-chart"></canvas>
+            <div class="groups-chart-container">
+                <canvas id="group-chart" height="275"></canvas>
             </div>
-            <div id="group-contents"> روی نمودار کلیک کنید. </div>
+            <div class="group-image">
+
+            </div>
+            <div id="group-contents">
+                <div
+                    style="display: flex; width: 100%; min-height: 100%; padding:50px 0px; color: gray; align-items: center;justify-content: center;">
+                    روی نمودار کلیک کنید. </div>
+            </div>
         </div>
         <!-- نمودار اقشار -->
-        <div class="section">
-            <div class="section-header">
-                توزیع جمعیت اقشار
-            </div>
-            <div class="bar-chart-container">
-                <canvas id="population-chart"></canvas>
-            </div>
-        </div>
 
-        <!-- بخش اقتصادی -->
-        <div class="section">
+
+        <div class="section" style="grid-row: span 9 / span 9;">
             <div class="section-header">
-                وضعیت اقتصادی
+                <img width="40" src="./icons/innovation.png" />
+                علمی فرهنگی
+            </div>
+            <div id="tech-data"></div>
+        </div>
+        <div class="section" style="grid-row: span 9 / span 10;">
+            <div class="section-header">
+                <img width="40" src="./icons/money.png" />
+                اقتصادی
             </div>
             <div id="economy-data"></div>
         </div>
-
-        <!-- سایر بخش‌ها -->
-
-        <!-- بخش‌های دیگر مشابه ساخته میشوند -->
+        <div class="section" style="grid-row: span 13 / span 13;">
+            <div class="section-header">
+                <img width="40" src="./icons/pops_btn.png" />
+                اقشار جامعه
+            </div>
+            <div id="population-data" class="pops-container">
+            </div>
+        </div>
+       
+        <div class="section" style="grid-row: span 9 / span 9; grid-column: span 2 / span 2;">
+            <div class="section-header">
+                <img width="40" src="./icons/reactionary_agenda.png" />
+                قوانین
+            </div>
+            <div id="laws-data" style="display:grid; grid-template-columns: repeat(3, 1fr); column-gap: 10px;"></div>
+        </div>
+        <div class="section" style="grid-row: span 11 / span 11; display: none; ">
+            <div class="section-header">
+                <img width="40" src="./icons/industrial_expansion.png" />
+                ساختمان‌ها
+            </div>
+            <div id="buildings-data" class="buildings-grid" ></div>
+        </div>
+        <div class="section" style=" padding: 0; overflow: hidden; grid-row: span 4 / span 5;">
+            <img src="./images/victoria.jpg" class="decorative" />
+        </div>
+        <div class="section" style=" padding: 0; overflow: hidden; grid-row: span 4 / span 5;">
+            <img src="./images/victoria2.jpg" class="decorative" />
+        </div>
+        <div class="section" style=" padding: 0; overflow: hidden; grid-row: span 4 / span 5;">
+            <img src="./images/victoria3.jpg" class="decorative" />
+        </div>
     </div>
-    <script src="./data.js"></script>
-    <script src="./helpers.js"></script>
-    <script src="./government.js"></script>
-    <script src="./groups.js"></script>
-    <script src="./population.js"></script>
+    <script src="./js/helpers.js"></script>
+    <script src="./js/government.js"></script>
+    <script src="./js/groups.js"></script>
+    <script src="./js/economics.js"></script>
+    <script src="./js/population.js"></script>
+    <script src="./js/tech.js"></script>
+    <script src="./js/laws.js"></script>
+    <script src="./js/buildings.js"></script>
     <script>
         const colors = ["#5c3f8d", "#a76c9a", "#d7b7c2", "#e8cca1", "#f2e1b5", "#708d3f", "#c4a6a1", "#a8b8d1", "#6a4c94", "#b7a99a", "#e5c3d5", "#a1e8cc", "#8d5c3f", "#b3c7b7"]
 
- 
+
         // تابع برای ایجاد تب‌های گروه‌ها
-       
+
 
         // آپدیت تابع رندر کلی
-        function renderAll() {
-            renderGovernment();
-            createBarChart();
-            renderPoliticalGroups();
+        function renderAll(data) {
+            renderGovernment(data);
+            renderPoliticalGroups(data);
+            renderEconomics(data);
+            renderTech(data);
+            renderPops(data);
+            renderLaws(data);
+            renderBuildings(data);
             // بقیه توابع...
         }
-
-        renderAll();
+        let maxyear = 1900;
+        function loadSheet(year) {
+            console.log("sheet", year)
+            document.querySelector(".overlay").style.display = "flex";
+            SheetDB.read('https://sheetdb.io/api/v1/9v2hgoe9c6zuv', { sheet: year }).then(function (result) {
+                let data = JSON.parse(result[0]["data"])
+                console.log("data", data.year)
+                document.querySelector(".overlay").style.display = "none"
+                if (year == maxyear) {
+                    document.querySelector(".next-year").style.display = "none"
+                } else {
+                    document.querySelector(".next-year").style.display = "block"
+                }
+                if (year == 1800) { 
+                    document.querySelector(".prev-year").style.display = "none"
+                } else {
+                    document.querySelector(".prev-year").style.display = "block"
+                }
+                renderAll(data)
+            }, function (error) {
+                window.location.reload()
+            });
+        }
+        fetch("https://sheetdb.io/api/v1/9v2hgoe9c6zuv/sheets").then(res => res.json()).then(res => {
+            let year = res.sheets[res.sheets.length - 1]
+            maxyear = year
+            loadSheet(year)
+            document.querySelector(".next-year").addEventListener("click", function () {
+                year = String(parseInt(year) + 5)
+                loadSheet(year)
+            })
+            document.querySelector(".prev-year").addEventListener("click", function () {
+                year = String(parseInt(year) - 5)
+                loadSheet(year)
+            })
+        })
     </script>
 </body>
 

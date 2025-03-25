@@ -25,5 +25,13 @@ function createTiles(value, image) {
     return `<div style="display: flex; justify-content: end;flex-direction: row-reverse; width: 100%">${array.join("")}<div style="height: 25px; width: ${(value % 1) * 25}px; background-image: url(./icons/${image}.png); background-size: cover;"></div></div>`
 }
 function icon(name, size) {
-    return `<img width="${size == "lg" ? 30 : size=="sm"? 15 : 20}" height="${size == "lg" ? 30 : size=="sm"? 15 : 20}" src="./icons/${name}.png" />`
+    return `<img width="${size=="xl" ? 50 : size == "lg" ? 30 : size=="sm"? 15 : 20}" height="${size=="xl" ? 50 :size == "lg" ? 30 : size=="sm"? 15 : 20}" src="./icons/${name}.png" />`
 }
+function stringToColorHSL(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    const hue = Math.abs(hash) % 360;
+    return `hsl(${hue}, 70%, 80%)`;
+  }

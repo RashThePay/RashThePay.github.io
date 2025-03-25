@@ -1,4 +1,5 @@
-function renderGovernment() {
+function renderGovernment(data) {
+    document.querySelector("#year").innerHTML = "<div>"+new Date(Date.parse(data.year)+ new Date(Date.now()).getHours()*1296000000).toLocaleDateString("fa-IR", {dateStyle: "full", calendar:"gregory"}) + " میلادی</div><div>مصادف با " +new Date(Date.parse(data.year)+ new Date(Date.now()).getHours()*1296000000).toLocaleDateString("fa-IR", {dateStyle: "long", calendar:"persian"})+" خورشیدی</div>"
     const gov = data.government;
     let html = `
         <div style="display: flex; gap: 10px;">
@@ -9,7 +10,7 @@ function renderGovernment() {
                 </span>
             </div>
             <div class="data-value">
-                ${icon(gov.type, "lg")}
+                <img width="${30}" height="${30}" src="./laws/${gov.type}.png" />
                 ${gov.type}
             </div>
         </div>
