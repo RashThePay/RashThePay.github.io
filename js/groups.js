@@ -37,7 +37,7 @@ function showGroup(index, data) {
 
 function renderPoliticalGroups(data) {
     const ctx = document.getElementById("group-chart");
-    Chart.defaults.font.family = "Vazir";
+    Chart.defaults.font.family = "Vazirmatn";
     const chart = new Chart(ctx, {
         type: 'doughnut',
         data: {
