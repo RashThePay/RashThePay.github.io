@@ -42,6 +42,7 @@ function createSupplyDemand(data) {
                 data: [ -data.economy.exports],
                 backgroundColor: ["#ef9696"]
             },
+            
         
         ]
         },
@@ -110,6 +111,16 @@ function createBudget(data) {
                 data: [ data.budget.previous],
                 backgroundColor: ['rgb(201, 203, 207)']
             },
+            {
+                label:"هزینه‌های دولتی",
+                data: [ -data.budget.expenditure],
+                backgroundColor: ['rgb(216, 133, 122)']
+            },
+            {
+                label:"بودجه کنونی",
+                data: [ data.budget.total],
+                backgroundColor: ['rgb(122, 216, 130)']
+            },
         ]
         },
         options: {
@@ -122,9 +133,6 @@ function createBudget(data) {
                 }
             },
             scales: {
-                yAxis: {
-                    type: 'logarithmic',
-                  }
             },
             responsive: true,
             plugins: {
