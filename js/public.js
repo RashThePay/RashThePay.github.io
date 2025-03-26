@@ -80,19 +80,19 @@ function renderPublic(data) {
         "name": "بهبود جاده‌ها",
         "authority_cost": 0,
         "budget_cost": 200,
-        "administration_cost": 15
+        "administration_cost": 8
     },
     {
         "name": "ساخت راه‌آهن",
         "authority_cost": 0,
-        "budget_cost": 1000,
-        "administration_cost": 100,
+        "budget_cost": 2500,
+        "administration_cost": 70,
         "condition": "Progress at least 45%"
     },
     {
         "name": "ساخت بندر",
         "authority_cost": 0,
-        "budget_cost": 1500,
+        "budget_cost": 3000,
         "administration_cost": 100,
         "condition": "Only once in the game"
     }
