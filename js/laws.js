@@ -1,5 +1,6 @@
 function renderLaws(data) {
     const container = document.getElementById('laws-data');
+    container.innerHTML = ""; // Clear previous content
     data.laws.forEach(law => {
         container.innerHTML += `
                 <div class="data-row data-bg">
