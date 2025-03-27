@@ -4,10 +4,6 @@ body {
     color: #3d2b1f;
 }
 
-* {
-    cursor: default;
-}
-
 .container {
     max-width: 100dvw;
     margin: 0 auto;
@@ -66,10 +62,11 @@ body {
     align-items: center;
     gap: 5px;
 }
+
 .data-label div {
     font-size: small;
     color: #433019;
-    
+
 }
 
 .data-value {
@@ -347,16 +344,42 @@ body {
     padding-bottom: 5px;
     margin-top: 0px;
 }
-.data-label img{
+
+.data-label img {
     position: relative;
     top: 2px;
     margin-left: 5px;
 }
+
 .data-scores {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 10px;
+}
+.data-desc {
+    height: 0;
+    overflow: hidden;
+    font-size: smaller;
+    color: #666
+}
+.data-row:hover .data-desc {
+    height: 120px;
+    max-height: fit-content;
+    transition: all 0.3s 0.2s;
 }
 .data-total {
     font-size: large;
+}
+
+.img-btn {
+    position: absolute;
+    left: 0%;
+    color: #3d2b1f;
+    font-size: small;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    text-align: center;
+}
+.img-btn:hover {
+    scale: 1.1;
+
 }

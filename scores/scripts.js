@@ -32,7 +32,8 @@ function calculateGroupScores(roundsData) {
         peasantsMultipleGovs: new Set(),
         pettyAllRuled: new Set(),
         workersRedRevolution: false,
-        intellectualsEarlyModern: false
+        intellectualsEarlyModern: false,
+        tradersMaxWealth: 0, 
     };
 
     // Process each round
@@ -65,7 +66,8 @@ function calculateGroupScores(roundsData) {
         if (round.government.type === "شورایی" && index > 0 && roundsData[index - 1].government.type !== "شورایی") {
             specialEvents.workersRedRevolution = true;
         }
-        
+        specialEvents.tradersMaxWealth = Math.max(specialEvents.tradersMaxWealth, round.people.find(p=>p.name=="تاجران" ).wealth);
+
     });
 
     // Calculate base scores from final influence
@@ -126,12 +128,12 @@ function calculateGroupScores(roundsData) {
     if (specialEvents.clericsReligiousRevolution) scores[GROUPS.CLERICS].events += 50;
     if (specialEvents.militaryPowerSeizure) scores[GROUPS.MILITARY].events += 50;
     if (specialEvents.peasantsMultipleGovs.size >= 3) scores[GROUPS.PEASANTS].events += 50;
-    if (specialEvents.pettyAllRuled.size === 8) scores[GROUPS.PETTY_BOURGEOISIE].events += 50;
+    if (specialEvents.pettyAllRuled.size > 2) scores[GROUPS.PETTY_BOURGEOISIE].events += Math.min(50, (specialEvents.pettyAllRuled.size - 2) * 5);
     if (specialEvents.intellectualsEarlyModern) scores[GROUPS.INTELLECTUALS].events += 50;
     if (specialEvents.workersRedRevolution) scores[GROUPS.WORKERS].events += 50;
 
     // Add capitalist merchant wealth bonus
-    if (finalRound.people[1].wealth > 40) scores[GROUPS.CAPITALISTS].events += 50;
+    if (specialEvents.tradersMaxWealth > 40) scores[GROUPS.CAPITALISTS].events += Math.min(50, specialEvents.tradersMaxWealth - 40);
 
     return scores;
 }
@@ -148,8 +150,8 @@ function calculateLawScore(lawDuration, lawPoints) {
 // Helper function to check if a law is an initial law
 function isInitialLaw(lawName) {
     const initialLaws = ["پادشاهی",
-        "خودکامگی", "سوداگرایی", "مالیات بر مصرف", "زمین‌داری فئودالی","دین رسمی","دیوان‌سالاری موروثی",
-        "سربازگیری","عدم نظارت","اقتصاد معیشتی",
+        "خودکامگی", "سوداگرایی", "مالیات بر مصرف", "زمین‌داری فئودالی", "دین رسمی", "دیوان‌سالاری موروثی",
+        "سربازگیری", "عدم نظارت", "اقتصاد معیشتی",
         "فقدان نیروی انتظامی", "فقدان سیستم آموزشی", "سانسور عقاید",
         "فقدان حقوق", "سرپرستی قانونی"
     ];
@@ -164,32 +166,166 @@ const groupScores = Object.entries(scores).map(([group, data]) => ({
     total: data.clout + data.special + data.laws + data.events,
     ...data
 })).sort((a, b) => b.total - a.total);
+const desc = {
+    "اربابان": {
+        "clout": "۴ امتیاز به ازای هر ۱٪ نفوذ در راند آخر، تا سقف ۱۰۰",
+        "special": "۱ امتیاز به ازای هر ۲٪ اعتبار اشرافی، تا سقف ۵۰",
+        "laws": {
+            "پادشاهی": 5,
+            "مشروطه": 3,
+            "زمین‌داری فئودالی": 5,
+            "زارع مستاجر": 3,
+            "سربازگیری": 3,
+            "دیوان‌سالاری موروثی": 3,
+            "حق رای بر اساس مالکیت": 5,
+            "الیگارشی": 3
+        },
+        "events": "۵۰ امتیاز در صورت بازگشت به پادشاهی"
+    },
+    "مذهبیون": {
+        "clout": "۴ امتیاز به ازای هر ۱٪ نفوذ در راند آخر، تا سقف ۱۰۰",
+        "special": "۱ امتیاز به ازای هر ۲٪ تعصب دینی، تا سقف ۵۰",
+        "laws": {
+            "دین رسمی": 5,
+            "آزادی عقیده": 3,
+            "مدارس مذهبی": 3,
+            "پادشاهی": 5,
+            "دین‌سالاری": 3,
+            "سانسور عقاید": 5,
+            "ممنوعیت اعتراض": 3,
+            "سرپرستی قانونی": 3
+        },
+        "events": "۵۰ امتیاز در صورت انقلاب مذهبی"
+    },
+    "نیروهای مسلح": {
+        "clout": "۴ امتیاز به ازای هر ۱٪ نفوذ در راند آخر، تا سقف ۱۰۰",
+        "special": "۱ امتیاز به ازای هر ۵ واحد قدرت نظامی، تا سقف ۵۰",
+        "laws": {
+            "ارتش حرفه‌ای": 5,
+            "خدمت سربازی": 3,
+            "پلیس اختصاصی": 3,
+            "پلیس نظامی": 5,
+            "گارد ملی": 5,
+            "پلیس مخفی": 3,
+            "مالیات سرانه": 3,
+            "ممنوعیت اعتراض": 3
+        },
+        "events": "۵۰ امتیاز در صورت تصرف قدرت"
+    },
+    "روستاییان": {
+        "clout": "۴ امتیاز به ازای هر ۱٪ نفوذ در راند آخر، تا سقف ۱۰۰",
+        "special": "۱ امتیاز به ازای هر ۵۰ هزار نفر رعیت یا کشاورز، تا سقف ۵۰",
+        "laws": {
+            "اسکان کشاورزان": 5,
+            "کشاورزی اشتراکی": 3,
+            "زراعت‌گرا": 5,
+            "ممنوعیت صنعت": 3,
+            "گارد ملی": 5,
+            "مالیات بر مصرف": 3,
+            "انزواگرایی": 3,
+            "حمایت داخلی": 3
+        },
+        "events": "۵۰ امتیاز اگر حداقل ۳ نوع حکومت برقرار شده باشد"
+    },
+    "سرمایه‌داران": {
+        "clout": "۴ امتیاز به ازای هر ۱٪ نفوذ در راند آخر، تا سقف ۱۰۰",
+        "special": "۱ امتیاز به ازای هر بنگاه، تا سقف ۵۰",
+        "laws": {
+            "اقتصاد آزاد": 5,
+            "مداخله‌گرا": 3,
+            "تجارت آزاد": 5,
+            "سوداگرایی": 3,
+            "مالیات سرانه": 5,
+            "مالیات بر زمین": 3,
+            "بدون قانون": 3,
+            "مدارس خصوصی": 3
+        },
+        "events": "۱ امتیاز به ازای هر واحد بیشینه ثروت تاجران در طول بازی منهای ۴۰"
+    },
+    "خرده‌بورژوازی": {
+        "clout": "۴ امتیاز به ازای هر ۱٪ نفوذ در راند آخر، تا سقف ۱۰۰",
+        "special": "۱ امتیاز به ازای هر ۱٪ تعادل اجتماعی بالای ۵۰٪، تا سقف ۵۰",
+        "laws": {
+            "دیوان‌سالاری انتخابی": 5,
+            "دیوان‌سالاری انتصابی": 3,
+            "مالیات تناسبی": 5,
+            "مالیات سرانه": 3,
+            "گارد ملی": 5,
+            "پلیس مخفی": 3,
+            "پلیس اختصاصی": 5,
+            "پلیس نظامی": 3,
+            "خودکامگی": 3,
+            "دین‌سالاری": 3
+        },
+        "events": "۱۰ امتیاز به ازای هر گروهی که در بازی حاکم شده‌ (به جز دو گروه حاکم اول) تا ۵۰ امتیاز."
+    },
+    "روشنفکران": {
+        "clout": "۴ امتیاز به ازای هر ۱٪ نفوذ در راند آخر، تا سقف ۱۰۰",
+        "special": "۱ امتیاز به ازای هر ۱٪ نرخ سواد عمومی، تا سقف ۵۰",
+        "laws": {
+            "جدایی کامل": 5,
+            "آزادی عقیده": 3,
+            "حق رای مشروط": 3,
+            "حق رای همگانی": 5,
+            "حق رای زنان": 5,
+            "حق مالکیت زنان": 3,
+            "حق کار زنان": 3,
+            "حمایت از آزادی بیان": 5,
+            "حق تجمع": 3,
+            "جمهوری": 3,
+            "آزادی‌ تضمینی": 3
+        },
+        "events": "۵۰ امتیاز اگر پیشرفت قبل از ۱۹۰۰ به ۱۰۰٪ برسد"
+    },
+    "اتحادیه کارگران": {
+        "clout": "۴ امتیاز به ازای هر ۱٪ نفوذ در راند آخر، تا سقف ۱۰۰",
+        "special": "۱ امتیاز به ازای هر ۲٪ تشکل، تا سقف ۵۰",
+        "laws": {
+            "مالکیت مشترک": 5,
+            "اقتصاد دستوری": 3,
+            "حمایت از آزادی بیان": 5,
+            "حق تجمع": 3,
+            "حق رای همگانی": 3,
+            "حقوق حمایتی": 5,
+            "نهادهای نظارتی": 3,
+            "مالیات تصاعدی": 5,
+            "مالیات تناسبی": 3
+        },
+        "events": "۵۰ امتیاز اگر انقلاب سرخ رخ داده باشد"
+    }
+}
 groupScores.forEach((group) =>
     document.querySelector(".scores-grid").innerHTML += `
     <div class="section">
-                    <div class="section-header">${group.name}</div>
+                    <div class="section-header">
+                    <img width="${35}" height="${35}" src="../icons/${group.name}.png" />
+                    ${group.name}</div>
                     <div class="data-scores">
                     <div class="data-row data-bg">
                     <div class="data-label"><span>نفوذ</span></div>
-                    <div class="data-value">${Math.floor(group.clout).toLocaleString('fa-IR')}</div>
+                    <div class="data-value">${Math.floor(group.clout).toLocaleString('fa-IR')} امتیاز</div>
+                    <div class="data-desc">${desc[group.name].clout}</div>
                     </div>
                     <div class="data-row data-bg">
                     <div class="data-label"><span>نشانگر ویژه</span></div>
-                    <div class="data-value">${Math.floor(group.special).toLocaleString('fa-IR')}</div>
+                    <div class="data-value">${Math.floor(group.special).toLocaleString('fa-IR')} امتیاز</div>
+                    <div class="data-desc">${desc[group.name].special}</div>
                     </div>
                     <div class="data-row data-bg">
                     <div class="data-label"><span>قوانین</span>
                     </div>
-                    <div class="data-value">${Math.floor(group.laws).toLocaleString('fa-IR')}</div>
+                    <div class="data-value">${Math.floor(group.laws).toLocaleString('fa-IR')} امتیاز</div>
+                    <div class="data-desc">${Object.entries(desc[group.name].laws).map(([law, points]) => `${law} (${points.toLocaleString("fa-IR")} امتیاز)`).join("، ")}</div>
                     </div>
                     <div class="data-row data-bg">
                     <div class="data-label"><span>رویدادها</span>
                     </div>
-                    <div class="data-value">${Math.floor(group.events).toLocaleString('fa-IR')}</div>
+                    <div class="data-value">${Math.floor(group.events).toLocaleString('fa-IR')} امتیاز</div>
+                    <div class="data-desc">${desc[group.name].events}</div>
                     </div>
                     </div>
                     <div class="data-row data-bg data-total">
-                    <div class="data-label"><span>امتیاز کل</span></div><div class="data-value">${Math.floor(group.total).toLocaleString('fa-IR')}</div></div>
+                    <div class="data-label"><span>امتیاز کل</span></div><div class="data-value">${Math.floor(group.total).toLocaleString('fa-IR')} امتیاز</div></div>
                     </div>
     `
 )
