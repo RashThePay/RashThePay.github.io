@@ -392,14 +392,18 @@ body {
     left: unset;
 }
 .double {
-    grid-column: span 2;
+    grid-column: span 2 / span 2;
 }
-
-@media (max-width: 768px) {
+#laws-data {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+}
+@media (max-width: 800px) {
     .double {
         grid-column: span 1;
     }
-    .laws-data {
+    #laws-data {
         grid-template-columns: repeat(2, 1fr);
     }
     h1 {
@@ -409,11 +413,7 @@ body {
         right: 0;
         left: unset;
     }
+    
 
 }
 
-.laws-data {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 10px;
-}
