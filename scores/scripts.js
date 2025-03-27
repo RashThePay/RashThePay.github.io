@@ -77,14 +77,14 @@ function calculateGroupScores(roundsData) {
     });
 
     // Calculate special marker scores
-    scores[GROUPS.LORDS].special += Math.min(Math.floor(finalRound.groups.find(g => g.name = GROUPS.LORDS).special.value * 50), 50);
-    scores[GROUPS.CLERICS].special += Math.min(Math.floor(finalRound.groups.find(g => g.name = GROUPS.CLERICS).special.value * 50), 50);
+    scores[GROUPS.LORDS].special += Math.min(Math.floor(finalRound.groups.find(g => g.name == GROUPS.LORDS).special.value * 50), 50);
+    scores[GROUPS.CLERICS].special += Math.min(Math.floor(finalRound.groups.find(g => g.name == GROUPS.CLERICS).special.value * 50), 50);
     scores[GROUPS.MILITARY].special += Math.min(Math.floor(finalRound.government.military / 5), 50);
-    scores[GROUPS.PEASANTS].special += Math.min(Math.floor((finalRound.people.find(p => p.name = "رعایا").population + finalRound.people.find(p => p.name = "کشاورزان").population) / 50000), 50);
+    scores[GROUPS.PEASANTS].special += Math.min(Math.floor((finalRound.people.find(p => p.name == "رعایا").population + finalRound.people.find(p => p.name == "کشاورزان").population) / 50000), 50);
     scores[GROUPS.CAPITALISTS].special += Math.min(finalRound.buildings.company.total, 50);
-    scores[GROUPS.PETTY_BOURGEOISIE].special += Math.min(Math.max(finalRound.groups.find(g => g.name = GROUPS.PETTY_BOURGEOISIE).special.value * 100 - 50, 0), 50);
+    scores[GROUPS.PETTY_BOURGEOISIE].special += Math.min(Math.max(finalRound.groups.find(g => g.name == GROUPS.PETTY_BOURGEOISIE).special.value * 100 - 50, 0), 50);
     scores[GROUPS.INTELLECTUALS].special += Math.min(finalRound.academic.literacy * 100, 50);
-    scores[GROUPS.WORKERS].special += Math.min(Math.floor(finalRound.groups.find(g => g.name = GROUPS.WORKERS).special.value * 100 / 2), 50);
+    scores[GROUPS.WORKERS].special += Math.min(Math.floor(finalRound.groups.find(g => g.name == GROUPS.WORKERS).special.value * 100 / 2), 50);
 
     // Calculate law-based scores
     scores[GROUPS.LORDS].laws += calculateLawScore(lawDuration, {
