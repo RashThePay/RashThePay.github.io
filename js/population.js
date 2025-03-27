@@ -3,6 +3,7 @@ function renderPops(data) {
     const people = data.people;
 
     const container = document.querySelector("#population-data");
+    container.innerHTML = ""; // Clear previous content
     people.forEach(person => {
         const card = document.createElement('div');
         card.className = 'card';
