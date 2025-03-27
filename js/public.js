@@ -153,11 +153,11 @@ function renderPublic(data) {
     <div class="data-value" style="float: left;">${formatNumber(data.public.bureaucracy)}</div>
     </div>
     <div class="data-row data-bg">
-    <div class="data-label"><span>سرکوب</span> <span style="float: left; font-size: xx-small" >۱۰۰ اقتدار</span></div>
+    <div class="data-label"><span>${icon("authority_icon", "sm")}سرکوب</span> <span style="float: left; font-size: xx-small" >۱۰۰ اقتدار</span></div>
     <div class="data-value" style="float: left;">${data.public.actions.find(a => a.name == "سرکوب").value.split(", ").map(v => v.length ? icon(v, "lg") : "-").join("")}</div>
     </div>
      <div class="data-row data-bg">
-    <div class="data-label"><span>پشتیبانی</span> <span style="float: left; font-size: xx-small" >۱۰۰ اقتدار</span></div>
+    <div class="data-label"><span>${icon("authority_icon", "sm")}پشتیبانی</span> <span style="float: left; font-size: xx-small" >۱۰۰ اقتدار</span></div>
     <div class="data-value" style="float: left;">${data.public.actions.find(a => a.name == "پشتیبانی").value.split(", ").map(v => v.length ? icon(v, "lg") : "-").join("")}</div>
     </div>
     </div>
@@ -165,7 +165,9 @@ function renderPublic(data) {
     ${data.public.actions.filter(a => typeof a.value == "boolean").map(a => {
         let cost, cost_text = "";
         let icon_name = "bureaucracy_icon"
-        if (a.name != "دارای بندر") {
+        if (a.name == "دارای بندر") return null;
+        if (a.name.includes("ساخت")) return null;
+        else {
             cost = costs.find(c => c.name == a.name);
             cost_text = cost.authority_cost ? formatNumber(cost.authority_cost) + " اقتدار" : "";
             cost_text += cost.administration_cost ? formatNumber(cost.administration_cost * data.public.needed_buro) + " اداره" : "";
@@ -180,9 +182,25 @@ function renderPublic(data) {
     </div></div>`
         )
     }).join("")}
+    ${(()=>{
+        let a = data.public.actions.find(b=>b.name = "تشویق صنایع")
+        let cost = costs.find(c => c.name == "تشویق صنایع");
+        let cost_text = cost.authority_cost ? formatNumber(cost.authority_cost) + " اقتدار" : "";
+        cost_text += cost.administration_cost ? formatNumber(cost.administration_cost * data.public.needed_buro) + " اداره" : "";
+        cost_text += cost.administration_cost && cost.budget_cost ? "، " : "";
+        cost_text += cost.budget_cost ? formatNumber(cost.budget_cost) + " بودجه" : "";
+         icon_name = cost.authority_cost ? "authority_icon" : a.name.includes("ساخت") ? "has_construction" : "bureaucracy_icon"
+        return (
+            `<div class="data-row data-bg">
+    <div class="data-label"><div style="display: block">${icon(icon_name, "sm")}${a.name}<span >${cost_text}</span></div>
+    <div class="data-value" style="float: left;">${icon(a.value ? "checkbox_greencheck" : "checkbox_simple", "lg")}</div>
+    </div></div>`
+        )
+    })()
+    }
     </div>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 10px">
-        ${data.public.actions.filter(a => String(a.name).includes("ساخت") && !a.name.includes("زیر") && typeof a.value != "boolean").map(a => {
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 10px">
+        ${data.public.actions.filter(a => String(a.name).includes("ساخت") && !a.name.includes("زیر")).map(a => {
         let cost = costs.find(c => c.name == a.name);
         !cost && console.log(a.name)
         let cost_text = cost.authority_cost ? formatNumber(cost.authority_cost) + " اقتدار" : "";
