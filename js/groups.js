@@ -1,6 +1,7 @@
 function showGroup(index, data) {
     let group = data.groups[index]
     let chart = document.querySelector(".groups-chart-container");
+    
     chart.style="height: 50px; width:50px; justify-self: unset;"
     
     let imgcontainer = document.querySelector(".group-image");
@@ -43,6 +44,7 @@ function showGroup(index, data) {
 }
 
 function renderPoliticalGroups(data) {
+    document.querySelector(".groups-chart-container").innerHTML = `<canvas id="group-chart" height="275"></canvas>`
     const ctx = document.getElementById("group-chart");
     Chart.defaults.font.family = "Vazirmatn";
     const chart = new Chart(ctx, {
