@@ -56,7 +56,7 @@ body {
 }
 
 .data-label span {
-    font-size: small;
+    font-size: 0.7rem;
     color: #8b7355;
     display: flex;
     align-items: center;
@@ -64,13 +64,13 @@ body {
 }
 
 .data-label div {
-    font-size: small;
+    font-size: 0.7rem;
     color: #433019;
 
 }
 
 .data-value {
-    font-size: larger;
+    font-size: 1.5remr;
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -146,7 +146,7 @@ body {
     position: absolute;
     top: -75%;
     margin-right: 5px;
-    font-size: smaller;
+    font-size: 0.7remer;
     max-width: 200px;
 }
 
@@ -351,35 +351,69 @@ body {
     margin-left: 5px;
 }
 
-.data-scores {
-}
+.data-scores {}
+
 .data-desc {
     height: 0;
     overflow: hidden;
-    font-size: smaller;
+    font-size: 0.7remer;
     color: #666
 }
+
 .data-row:hover .data-desc {
     height: 120px;
     max-height: fit-content;
     transition: all 0.3s 0.2s;
 }
+
 .data-total {
-    font-size: large;
+    font-size: 1.5rem;
 }
 
 .img-btn {
     position: absolute;
     left: 0%;
+    top: 0%;
     color: #3d2b1f;
-    font-size: small;
+    font-size: 0.7rem;
     font-weight: bold;
     cursor: pointer;
     text-decoration: none;
     transition: all 0.3s;
     text-align: center;
 }
+
 .img-btn:hover {
     scale: 1.1;
 
+}
+.img-btn:not(:first-child) {
+    right: 0;
+    left: unset;
+}
+.double {
+    grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+    .double {
+        grid-column: span 1;
+    }
+    .laws-data {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    h1 {
+        margin-top: 120px;
+    }
+    .img-btn:not(:first-child) {
+        right: 0;
+        left: unset;
+    }
+
+}
+
+.laws-data {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
 }
