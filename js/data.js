@@ -3,7 +3,7 @@ const data = {
     "government": {
         "type": "پادشاهی",
         "ruler": "اربابان",
-        "legitimacy": 1,
+        "legitimacy": 0.6350,
         "military": 100,
         "security": 0.954600614824,
         "radicals": 173972,

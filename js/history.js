@@ -2155,7 +2155,7 @@ const history = [
     "government": {
         "type": "پادشاهی",
         "ruler": "اربابان",
-        "legitimacy": 1,
+        "legitimacy": 0.6353,
         "military": 90,
         "security": 0.9310474,
         "radicals": 203400,
