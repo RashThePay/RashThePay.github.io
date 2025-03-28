@@ -1,142 +1,142 @@
 const data = {
-    "year": 1815,
+    "year": 1820,
     "government": {
         "type": "پادشاهی",
         "ruler": "اربابان",
         "legitimacy": 1,
-        "military": 90,
-        "security": 0.9310474,
-        "radicals": 203400,
-        "loyals": 384640
+        "military": 100,
+        "security": 0.954600614824,
+        "radicals": 173972,
+        "loyals": 447960
     },
     "people": [
         {
             "name": "اشراف",
-            "population": 51250,
-            "wealth": 39.800000000000004,
-            "happiness": 1.9800000000000004,
-            "influence": 557.2
+            "population": 50450,
+            "wealth": 38.1,
+            "happiness": 1.81,
+            "influence": 533.4
         },
         {
             "name": "تاجران",
-            "population": 3000,
-            "wealth": 41.300000000000004,
-            "happiness": 2.1300000000000003,
-            "influence": 258.12500000000006
+            "population": 3400,
+            "wealth": 37,
+            "happiness": 1.7,
+            "influence": 231.25
         },
         {
             "name": "افسران",
-            "population": 9000,
-            "wealth": 11.8,
-            "happiness": 0.36000000000000015,
-            "influence": 147.5
+            "population": 10000,
+            "wealth": 10.9,
+            "happiness": 0.18000000000000008,
+            "influence": 136.25
         },
         {
             "name": "مدیران",
             "population": 2500,
-            "wealth": 11.4,
-            "happiness": 0.2800000000000001,
-            "influence": 45.6
+            "wealth": 10.600000000000001,
+            "happiness": 0.12000000000000029,
+            "influence": 42.400000000000006
         },
         {
             "name": "فرهنگیان",
             "population": 12000,
-            "wealth": 11.4,
-            "happiness": 0.2800000000000001,
-            "influence": 45.6
+            "wealth": 10.600000000000001,
+            "happiness": 0.12000000000000029,
+            "influence": 42.400000000000006
         },
         {
             "name": "روحانیان",
-            "population": 117250,
-            "wealth": 14.8,
-            "happiness": 0.9600000000000002,
-            "influence": 57.720000000000006
+            "population": 115650,
+            "wealth": 13.600000000000001,
+            "happiness": 0.7200000000000003,
+            "influence": 53.040000000000006
         },
         {
             "name": "مهندسان",
             "population": 0,
-            "wealth": 11.100000000000001,
-            "happiness": 0.22000000000000028,
-            "influence": 33.300000000000004
+            "wealth": 10.3,
+            "happiness": 0.060000000000000143,
+            "influence": 30.900000000000002
         },
         {
             "name": "مغازه‌داران",
-            "population": 48000,
-            "wealth": 11.100000000000001,
-            "happiness": 0.22000000000000028,
-            "influence": 33.300000000000004
+            "population": 48800,
+            "wealth": 10.3,
+            "happiness": 0.060000000000000143,
+            "influence": 30.900000000000002
         },
         {
             "name": "کشاورزان",
-            "population": 108000,
-            "wealth": 10.700000000000001,
-            "happiness": 0.1400000000000002,
-            "influence": 21.400000000000002
+            "population": 128000,
+            "wealth": 10,
+            "happiness": 0,
+            "influence": 20
         },
         {
             "name": "کارمندان",
-            "population": 64000,
-            "wealth": 7.1000000000000005,
-            "happiness": 0.028571428571428723,
-            "influence": 10.65
+            "population": 64800,
+            "wealth": 6.6000000000000005,
+            "happiness": -0.11428571428571413,
+            "influence": 9.9
         },
         {
             "name": "ماشین‌کاران",
             "population": 0,
-            "wealth": 7.1000000000000005,
-            "happiness": 0.028571428571428723,
-            "influence": 10.65
+            "wealth": 6.6000000000000005,
+            "happiness": -0.11428571428571413,
+            "influence": 9.9
         },
         {
             "name": "سربازان",
-            "population": 171000,
-            "wealth": 7.1000000000000005,
-            "happiness": 0.028571428571428723,
-            "influence": 10.65
+            "population": 190000,
+            "wealth": 6.6000000000000005,
+            "happiness": -0.11428571428571413,
+            "influence": 9.9
         },
         {
             "name": "کارگران",
-            "population": 904000,
-            "wealth": 4.9,
-            "happiness": -0.039999999999999855,
-            "influence": 4.9
+            "population": 982400,
+            "wealth": 4.5,
+            "happiness": -0.2,
+            "influence": 4.5
         },
         {
             "name": "رعایا",
-            "population": 4510000,
-            "wealth": 5,
-            "happiness": 0,
-            "influence": 1
+            "population": 4392000,
+            "wealth": 5.9,
+            "happiness": -0.13999999999999985,
+            "influence": 1.1800000000000002
         }
     ],
     "economy": {
-        "prices": 0.1280628756356912,
-        "supply": 2829,
-        "demand": 3244.5,
-        "production": 2549,
-        "needs": 3244.5,
+        "prices": 0.00047775047775056034,
+        "supply": 2929,
+        "demand": 2930.4,
+        "production": 2649,
+        "needs": 2930.4,
         "imports": 280,
         "exports": 0
     },
     "academic": {
-        "progress": 0.09000000000000001,
-        "innovation": 3.6,
-        "literacy": 0.0806,
-        "access": 1,
-        "education": 4
+        "progress": 0.12000000000000001,
+        "innovation": 3,
+        "literacy": 0.08726666666666667,
+        "access": 1.2,
+        "education": 4.8
     },
     "budget": {
-        "production": 31.601733703190014,
-        "investment": 229.99999999999997,
+        "production": 41.80998498498499,
+        "investment": 0,
         "tariffs": 28,
-        "taxes": 2524.25,
-        "previous": 272.8194050098723,
-        "expenditure": 453,
-        "total": 2605.671138713062
+        "taxes": 2625,
+        "previous": 879.2813038963277,
+        "expenditure": 446.6,
+        "total": 3099.491288881313
     },
     "public": {
         "authority": 600,
-        "bureaucracy": 155,
+        "bureaucracy": 160,
         "needed_buro": 0.8999999999999999,
         "actions": [
             {
@@ -273,19 +273,19 @@ const data = {
             },
             {
                 "name": "اداره هر صادرات",
-                "value": 60
+                "value": 12
             },
             {
                 "name": "اداره هر واردات",
-                "value": 60
+                "value": 12
             },
             {
                 "name": "زیرساخت کل",
-                "value": 125
+                "value": 165
             },
             {
                 "name": "زیرساخت آزاد",
-                "value": 47
+                "value": 81
             },
             {
                 "name": "سهم بخش خصوصی",
@@ -293,11 +293,11 @@ const data = {
             },
             {
                 "name": "سهمیه دولت",
-                "value": 9
+                "value": 12
             },
             {
                 "name": "سهمیه خصوصی",
-                "value": 4
+                "value": 5
             },
             {
                 "name": "سهمیه دولتی رفته",
@@ -312,18 +312,18 @@ const data = {
     "groups": [
         {
             "name": "اربابان",
-            "power": 18874219.94511602,
-            "clout": 0.3531905737935614,
-            "vote": 35,
+            "power": 16422097.630514067,
+            "clout": 0.3158007273972111,
+            "vote": 32,
             "side": "حاکم",
             "special": {
                 "name": "اعتبار اشرافی",
-                "value": 0.65
+                "value": 0.20000000000000007
             },
             "actions": [
                 {
                     "name": "گسترش املاک",
-                    "available": true
+                    "available": false
                 },
                 {
                     "name": "ضیافت اربابی",
@@ -335,24 +335,24 @@ const data = {
                 },
                 {
                     "name": "افزایش طرفداران یا مخالفان",
-                    "available": 20000
+                    "available": 57000
                 }
             ]
         },
         {
             "name": "مذهبیون",
-            "power": 11825384.444374975,
-            "clout": 0.2212867249286778,
-            "vote": 22,
+            "power": 15483086.047963,
+            "clout": 0.2977433179556165,
+            "vote": 30,
             "side": "حامی",
             "special": {
                 "name": "تعصب دینی",
-                "value": 0.6500000000000001
+                "value": 0.7000000000000002
             },
             "actions": [
                 {
                     "name": "صدور فتوای وحدت",
-                    "available": true
+                    "available": false
                 },
                 {
                     "name": "تبلیغ علیه بدعت",
@@ -364,16 +364,16 @@ const data = {
                 },
                 {
                     "name": "افزایش طرفداران یا مخالفان",
-                    "available": 20000
+                    "available": 108000
                 }
             ]
         },
         {
             "name": "نیروهای مسلح",
-            "power": 6054218.896407764,
-            "clout": 0.11329173084302194,
-            "vote": 11,
-            "side": "حامی",
+            "power": 5404190.972157051,
+            "clout": 0.10392383959704996,
+            "vote": 10,
+            "side": "اپوزیسیون",
             "special": {
                 "name": "تهدید خارجی",
                 "value": 0
@@ -389,23 +389,23 @@ const data = {
                 },
                 {
                     "name": "تامین سلاح مخالفان",
-                    "available": false
+                    "available": true
                 },
                 {
                     "name": "افزایش طرفداران یا مخالفان",
-                    "available": 20000
+                    "available": 37000
                 }
             ]
         },
         {
             "name": "روستاییان",
-            "power": 4663981.5011845585,
-            "clout": 0.0872764176403585,
-            "vote": 9,
+            "power": 4320315.03904267,
+            "clout": 0.08308065526170402,
+            "vote": 8,
             "side": "اپوزیسیون",
             "special": {
                 "name": "مقاومت روستایی",
-                "value": 0.21244855753544392
+                "value": 0
             },
             "actions": [
                 {
@@ -414,7 +414,7 @@ const data = {
                 },
                 {
                     "name": "احیای صنایع دستی",
-                    "available": true
+                    "available": false
                 },
                 {
                     "name": "شورش دهقانی",
@@ -422,19 +422,19 @@ const data = {
                 },
                 {
                     "name": "افزایش طرفداران یا مخالفان",
-                    "available": 20000
+                    "available": 30000
                 }
             ]
         },
         {
             "name": "سرمایه‌داران",
-            "power": 789570.2980070018,
-            "clout": 0.014775115867800809,
+            "power": 727434.3508468126,
+            "clout": 0.01398873044721695,
             "vote": 1,
-            "side": "حامی",
+            "side": "ممتنع",
             "special": {
                 "name": "سرمایه‌",
-                "value": 485.14563502489926
+                "value": 699.4566486280332
             },
             "actions": [
                 {
@@ -457,13 +457,13 @@ const data = {
         },
         {
             "name": "خرده‌بورژوازی",
-            "power": 2896060.765887358,
-            "clout": 0.05419357020417987,
+            "power": 2725912.111027719,
+            "clout": 0.05241991899280126,
             "vote": 5,
-            "side": "حامی",
+            "side": "اپوزیسیون",
             "special": {
                 "name": "تعادل اجتماعی",
-                "value": 0.6397284792387254
+                "value": 0.6128215798240146
             },
             "actions": [
                 {
@@ -486,13 +486,13 @@ const data = {
         },
         {
             "name": "روشنفکران",
-            "power": 4297838.582557806,
-            "clout": 0.08042483766003221,
+            "power": 4164342.3481324282,
+            "clout": 0.08008126441945064,
             "vote": 8,
-            "side": "حامی",
+            "side": "ممتنع",
             "special": {
                 "name": "رادیکالیسم",
-                "value": 0.15000000000000002
+                "value": 0.05000000000000002
             },
             "actions": [
                 {
@@ -509,19 +509,19 @@ const data = {
                 },
                 {
                     "name": "افزایش طرفداران یا مخالفان",
-                    "available": 20000
+                    "available": 29000
                 }
             ]
         },
         {
             "name": "اتحادیه کارگران",
-            "power": 3371637.494866729,
-            "clout": 0.06309296939945912,
+            "power": 3265282.6496903785,
+            "clout": 0.06279213892954033,
             "vote": 6,
-            "side": "حامی",
+            "side": "ممتنع",
             "special": {
                 "name": "تشکل کارگری",
-                "value": 0.25237187759783647
+                "value": 0.25116855572001656
             },
             "actions": [
                 {
@@ -538,7 +538,7 @@ const data = {
                 },
                 {
                     "name": "افزایش طرفداران یا مخالفان",
-                    "available": 20000
+                    "available": 22000
                 }
             ]
         }
@@ -616,9 +616,9 @@ const data = {
         },
         {
             "group": "سیستم آموزشی",
-            "enacted": "فقدان سیستم آموزشی",
+            "enacted": "مدارس مذهبی",
             "available": [
-                "مدارس مذهبی"
+                "فقدان سیستم آموزشی"
             ]
         },
         {
@@ -643,7 +643,7 @@ const data = {
         "factory": {
             "total": 15,
             "private": [
-                13
+                12
             ],
             "methods": [
                 15,
@@ -652,23 +652,23 @@ const data = {
                 0
             ],
             "production": 540,
-            "profit": 175.56518723994452
+            "profit": 165.03941441441444
         },
         "farm": {
-            "total": 27,
+            "total": 32,
             "private": [
-                25,
-                1,
+                27,
+                4,
                 0
             ],
             "methods": [
-                27,
+                32,
                 0,
                 0,
                 0
             ],
-            "production": 702,
-            "profit": 57.45769764216366
+            "production": 832,
+            "profit": 64.01528801528802
         },
         "mine": {
             "total": 2,
@@ -681,7 +681,7 @@ const data = {
                 0
             ],
             "production": 54,
-            "profit": 6.384188626907073
+            "profit": 6.001433251433252
         },
         "university": {
             "total": 3,
@@ -690,31 +690,31 @@ const data = {
         },
         "office": {
             "total": 5,
-            "wages": "متوسط",
+            "wages": "کم",
             "professional": false,
             "secular": false
         },
         "barracks": {
-            "total": 9,
+            "total": 10,
             "wages": "متوسط",
             "level": "ابتدایی"
         },
         "manors": {
-            "total": 250
+            "total": 246
         },
         "company": {
-            "total": 15
+            "total": 17
         },
         "city": {
             "total": 4,
-            "next": 0.5499999999999998,
+            "next": 0.7999999999999998,
             "production": 128,
-            "profit": 14.896440129449836
+            "profit": 14.003344253344254
         },
         "village": {
-            "total": 225,
-            "production": 1125,
-            "profit": 225
+            "total": 219,
+            "production": 1095,
+            "profit": 219
         }
     }
 }

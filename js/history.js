@@ -2150,5 +2150,724 @@ const history = [
             "profit": 0
         }
     }
+},{
+    "year": 1815,
+    "government": {
+        "type": "پادشاهی",
+        "ruler": "اربابان",
+        "legitimacy": 1,
+        "military": 90,
+        "security": 0.9310474,
+        "radicals": 203400,
+        "loyals": 384640
+    },
+    "people": [
+        {
+            "name": "اشراف",
+            "population": 51250,
+            "wealth": 36.800000000000004,
+            "happiness": 1.6800000000000004,
+            "influence": 515.2
+        },
+        {
+            "name": "تاجران",
+            "population": 2800,
+            "wealth": 38.1,
+            "happiness": 1.81,
+            "influence": 238.125
+        },
+        {
+            "name": "افسران",
+            "population": 9000,
+            "wealth": 10.200000000000001,
+            "happiness": 0.040000000000000216,
+            "influence": 127.50000000000001
+        },
+        {
+            "name": "مدیران",
+            "population": 2500,
+            "wealth": 10.100000000000001,
+            "happiness": 0.020000000000000285,
+            "influence": 40.400000000000006
+        },
+        {
+            "name": "فرهنگیان",
+            "population": 12000,
+            "wealth": 10.100000000000001,
+            "happiness": 0.020000000000000285,
+            "influence": 40.400000000000006
+        },
+        {
+            "name": "روحانیان",
+            "population": 117250,
+            "wealth": 13.5,
+            "happiness": 0.7,
+            "influence": 52.65
+        },
+        {
+            "name": "مهندسان",
+            "population": 0,
+            "wealth": 9.9,
+            "happiness": -0.019999999999999928,
+            "influence": 29.700000000000003
+        },
+        {
+            "name": "مغازه‌داران",
+            "population": 47600,
+            "wealth": 9.9,
+            "happiness": -0.019999999999999928,
+            "influence": 29.700000000000003
+        },
+        {
+            "name": "کشاورزان",
+            "population": 108000,
+            "wealth": 9.8,
+            "happiness": -0.039999999999999855,
+            "influence": 19.6
+        },
+        {
+            "name": "کارمندان",
+            "population": 63600,
+            "wealth": 6.5,
+            "happiness": -0.14285714285714285,
+            "influence": 9.75
+        },
+        {
+            "name": "ماشین‌کاران",
+            "population": 0,
+            "wealth": 6.5,
+            "happiness": -0.14285714285714285,
+            "influence": 9.75
+        },
+        {
+            "name": "سربازان",
+            "population": 171000,
+            "wealth": 6.5,
+            "happiness": -0.14285714285714285,
+            "influence": 9.75
+        },
+        {
+            "name": "کارگران",
+            "population": 904000,
+            "wealth": 4.4,
+            "happiness": -0.23999999999999985,
+            "influence": 4.4
+        },
+        {
+            "name": "رعایا",
+            "population": 4511000,
+            "wealth": 4.7,
+            "happiness": -0.11999999999999993,
+            "influence": 0.9400000000000001
+        }
+    ],
+    "economy": {
+        "prices": 0.12736358308399398,
+        "supply": 2829,
+        "demand": 3241.9,
+        "production": 2549,
+        "needs": 3241.9,
+        "imports": 280,
+        "exports": 0
+    },
+    "academic": {
+        "progress": 0.09000000000000001,
+        "innovation": 3.6,
+        "literacy": 0.0806,
+        "access": 1,
+        "education": 4
+    },
+    "budget": {
+        "production": 44.46189888645547,
+        "investment": 229.99999999999997,
+        "tariffs": 28,
+        "taxes": 2625,
+        "previous": 272.8194050098723,
+        "expenditure": 2293,
+        "total": 879.2813038963277
+    },
+    "public": {
+        "authority": 600,
+        "bureaucracy": 155,
+        "needed_buro": 0.8999999999999999,
+        "actions": [
+            {
+                "name": "سرکوب",
+                "value": "روستاییان"
+            },
+            {
+                "name": "پشتیبانی",
+                "value": "خرده‌بورژوازی, روشنفکران, اتحادیه کارگران"
+            },
+            {
+                "name": "تاثیر سرکوب/پشتیبانی",
+                "value": 0.125
+            },
+            {
+                "name": "حکومت نظامی",
+                "value": false
+            },
+            {
+                "name": "مقابله با تشکل",
+                "value": false
+            },
+            {
+                "name": "تشویق صنایع",
+                "value": "کارخانه‌ها"
+            },
+            {
+                "name": "ترویج رشد اجتماعی",
+                "value": false
+            },
+            {
+                "name": "تغییر صادرات",
+                "value": 0
+            },
+            {
+                "name": "تغییر واردات",
+                "value": 0
+            },
+            {
+                "name": "ملی‌سازی",
+                "value": 1
+            },
+            {
+                "name": "خصوصی‌سازی",
+                "value": 0
+            },
+            {
+                "name": "سرمایه‌گذاری",
+                "value": 0
+            },
+            {
+                "name": "",
+                "value": ""
+            },
+            {
+                "name": "اداره لازم",
+                "value": 22.499999999999996
+            },
+            {
+                "name": "ساخت کارخانه",
+                "value": 0
+            },
+            {
+                "name": "ساخت مزرعه",
+                "value": 0
+            },
+            {
+                "name": "ساخت معدن",
+                "value": 0
+            },
+            {
+                "name": "بهبود جاده‌ها",
+                "value": 4
+            },
+            {
+                "name": "ساخت راه‌آهن",
+                "value": false
+            },
+            {
+                "name": "ساخت بندر",
+                "value": false
+            },
+            {
+                "name": "اداره لازم",
+                "value": 28.799999999999997
+            },
+            {
+                "name": "ساخت اداره دولتی",
+                "value": 0
+            },
+            {
+                "name": "تنظیم بودجه اداری",
+                "value": true
+            },
+            {
+                "name": "تنظیم بودجه نظامی",
+                "value": false
+            },
+            {
+                "name": "ساخت دانشگاه",
+                "value": 0
+            },
+            {
+                "name": "ساخت پادگان",
+                "value": 1
+            },
+            {
+                "name": " ",
+                "value": ""
+            },
+            {
+                "name": "اداره لازم",
+                "value": 4.5
+            },
+            {
+                "name": "حجم صادرات",
+                "value": 0
+            },
+            {
+                "name": "حجم واردات",
+                "value": 280
+            },
+            {
+                "name": "تعرفه صادرات",
+                "value": 0.1
+            },
+            {
+                "name": "تعرفه واردات",
+                "value": 0.1
+            },
+            {
+                "name": "دارای بندر",
+                "value": false
+            },
+            {
+                "name": "اداره هر صادرات",
+                "value": 12
+            },
+            {
+                "name": "اداره هر واردات",
+                "value": 12
+            },
+            {
+                "name": "زیرساخت کل",
+                "value": 165
+            },
+            {
+                "name": "زیرساخت آزاد",
+                "value": 87
+            },
+            {
+                "name": "سهم بخش خصوصی",
+                "value": 0.25
+            },
+            {
+                "name": "سهمیه دولت",
+                "value": 12
+            },
+            {
+                "name": "سهمیه خصوصی",
+                "value": 5
+            },
+            {
+                "name": "سهمیه دولتی رفته",
+                "value": 1
+            },
+            {
+                "name": "سهمیه خصوصی رفته",
+                "value": 5
+            }
+        ]
+    },
+    "groups": [
+        {
+            "name": "اربابان",
+            "power": 17432184.840474438,
+            "clout": 0.3556639882242526,
+            "vote": 36,
+            "side": "حاکم",
+            "special": {
+                "name": "اعتبار اشرافی",
+                "value": 0.65
+            },
+            "actions": [
+                {
+                    "name": "گسترش املاک",
+                    "available": false
+                },
+                {
+                    "name": "ضیافت اربابی",
+                    "available": false
+                },
+                {
+                    "name": "اتحاد استراتژیک",
+                    "available": false
+                },
+                {
+                    "name": "افزایش طرفداران یا مخالفان",
+                    "available": 60000
+                }
+            ]
+        },
+        {
+            "name": "مذهبیون",
+            "power": 10848929.343871225,
+            "clout": 0.2213476689075394,
+            "vote": 22,
+            "side": "حامی",
+            "special": {
+                "name": "تعصب دینی",
+                "value": 0.6500000000000001
+            },
+            "actions": [
+                {
+                    "name": "صدور فتوای وحدت",
+                    "available": true
+                },
+                {
+                    "name": "تبلیغ علیه بدعت",
+                    "available": false
+                },
+                {
+                    "name": "نهضت عدالت‌خواهی",
+                    "available": false
+                },
+                {
+                    "name": "افزایش طرفداران یا مخالفان",
+                    "available": 74000
+                }
+            ]
+        },
+        {
+            "name": "نیروهای مسلح",
+            "power": 5535810.278440136,
+            "clout": 0.11294558769887639,
+            "vote": 11,
+            "side": "اپوزیسیون",
+            "special": {
+                "name": "تهدید خارجی",
+                "value": 0
+            },
+            "actions": [
+                {
+                    "name": "رزمایش نمایشی",
+                    "available": false
+                },
+                {
+                    "name": "بسیج ملی‌گرایان",
+                    "available": false
+                },
+                {
+                    "name": "تامین سلاح مخالفان",
+                    "available": true
+                },
+                {
+                    "name": "افزایش طرفداران یا مخالفان",
+                    "available": 38000
+                }
+            ]
+        },
+        {
+            "name": "روستاییان",
+            "power": 4325768.383247766,
+            "clout": 0.08825744158862446,
+            "vote": 9,
+            "side": "اپوزیسیون",
+            "special": {
+                "name": "مقاومت روستایی",
+                "value": 0.21244855753544392
+            },
+            "actions": [
+                {
+                    "name": "تحریم صنعت",
+                    "available": true
+                },
+                {
+                    "name": "احیای صنایع دستی",
+                    "available": true
+                },
+                {
+                    "name": "شورش دهقانی",
+                    "available": false
+                },
+                {
+                    "name": "افزایش طرفداران یا مخالفان",
+                    "available": 29000
+                }
+            ]
+        },
+        {
+            "name": "سرمایه‌داران",
+            "power": 680319.7212321076,
+            "clout": 0.01388037285832484,
+            "vote": 1,
+            "side": "ممتنع",
+            "special": {
+                "name": "سرمایه‌",
+                "value": 485.14563502489926
+            },
+            "actions": [
+                {
+                    "name": "ساخت‌وساز",
+                    "available": false
+                },
+                {
+                    "name": "بورسیه علمی",
+                    "available": true
+                },
+                {
+                    "name": "لابی‌گری کلان",
+                    "available": false
+                },
+                {
+                    "name": "افزایش طرفداران یا مخالفان",
+                    "available": 20000
+                }
+            ]
+        },
+        {
+            "name": "خرده‌بورژوازی",
+            "power": 2595883.907884551,
+            "clout": 0.052963092813341814,
+            "vote": 5,
+            "side": "اپوزیسیون",
+            "special": {
+                "name": "تعادل اجتماعی",
+                "value": 0.63485905859602
+            },
+            "actions": [
+                {
+                    "name": "معرفی مد جدید",
+                    "available": false
+                },
+                {
+                    "name": "خدمات شهروندی",
+                    "available": false
+                },
+                {
+                    "name": "اصلاحات تدریجی",
+                    "available": false
+                },
+                {
+                    "name": "افزایش طرفداران یا مخالفان",
+                    "available": 20000
+                }
+            ]
+        },
+        {
+            "name": "روشنفکران",
+            "power": 3940625.393808919,
+            "clout": 0.08039947697237138,
+            "vote": 8,
+            "side": "ممتنع",
+            "special": {
+                "name": "رادیکالیسم",
+                "value": 0.15000000000000002
+            },
+            "actions": [
+                {
+                    "name": "چاپ کتاب",
+                    "available": false
+                },
+                {
+                    "name": "پروپاگاندا",
+                    "available": false
+                },
+                {
+                    "name": "اعتراضات مدنی",
+                    "available": false
+                },
+                {
+                    "name": "افزایش طرفداران یا مخالفان",
+                    "available": 27000
+                }
+            ]
+        },
+        {
+            "name": "اتحادیه کارگران",
+            "power": 3035583.7191483206,
+            "clout": 0.061934164995437094,
+            "vote": 6,
+            "side": "ممتنع",
+            "special": {
+                "name": "تشکل کارگری",
+                "value": 0.24773665998174837
+            },
+            "actions": [
+                {
+                    "name": "کمپین آگاهی کارگری",
+                    "available": false
+                },
+                {
+                    "name": "اعتصاب گسترده",
+                    "available": false
+                },
+                {
+                    "name": "کار شرافتمندانه",
+                    "available": false
+                },
+                {
+                    "name": "افزایش طرفداران یا مخالفان",
+                    "available": 20000
+                }
+            ]
+        }
+    ],
+    "laws": [
+        {
+            "group": "نوع حکومت",
+            "enacted": "پادشاهی",
+            "available": []
+        },
+        {
+            "group": "توزیع قدرت",
+            "enacted": "الیگارشی",
+            "available": [
+                "خودکامگی"
+            ]
+        },
+        {
+            "group": "دین و حکومت",
+            "enacted": "دین رسمی",
+            "available": []
+        },
+        {
+            "group": "دیوان‌سالاری",
+            "enacted": "دیوان‌سالاری موروثی",
+            "available": [
+                "دیوان‌سالاری انتصابی"
+            ]
+        },
+        {
+            "group": "مدل نظامی",
+            "enacted": "سربازگیری",
+            "available": []
+        },
+        {
+            "group": "امنیت داخلی",
+            "enacted": "عدم نظارت",
+            "available": []
+        },
+        {
+            "group": "سیستم اقتصادی",
+            "enacted": "اقتصاد معیشتی",
+            "available": []
+        },
+        {
+            "group": "تجارت خارجی",
+            "enacted": "حمایت داخلی",
+            "available": [
+                "سوداگرایی",
+                "تجارت آزاد",
+                "انزواگرایی"
+            ]
+        },
+        {
+            "group": "مالیات",
+            "enacted": "مالیات بر زمین",
+            "available": [
+                "مالیات بر مصرف"
+            ]
+        },
+        {
+            "group": "اصلاحات ارضی",
+            "enacted": "زارع مستاجر",
+            "available": [
+                "زمین‌داری فئودالی",
+                "اسکان کشاورزان"
+            ]
+        },
+        {
+            "group": "نیروی انتظامی",
+            "enacted": "پلیس محلی",
+            "available": [
+                "فقدان نیروی انتظامی"
+            ]
+        },
+        {
+            "group": "سیستم آموزشی",
+            "enacted": "فقدان سیستم آموزشی",
+            "available": [
+                "مدارس مذهبی"
+            ]
+        },
+        {
+            "group": "آزادی بیان",
+            "enacted": "سانسور عقاید",
+            "available": []
+        },
+        {
+            "group": "حقوق کارگران",
+            "enacted": "فقدان حقوق",
+            "available": []
+        },
+        {
+            "group": "حقوق زنان",
+            "enacted": "حق مالکیت زنان",
+            "available": [
+                "سرپرستی قانونی"
+            ]
+        }
+    ],
+    "buildings": {
+        "factory": {
+            "total": 15,
+            "private": [
+                12
+            ],
+            "methods": [
+                15,
+                0,
+                0,
+                0
+            ],
+            "production": 540,
+            "profit": 175.5074956044295
+        },
+        "farm": {
+            "total": 27,
+            "private": [
+                25,
+                1,
+                0
+            ],
+            "methods": [
+                27,
+                0,
+                0,
+                0
+            ],
+            "production": 702,
+            "profit": 57.43881674326783
+        },
+        "mine": {
+            "total": 2,
+            "private": [
+                1
+            ],
+            "methods": [
+                2,
+                0,
+                0
+            ],
+            "production": 54,
+            "profit": 6.382090749251981
+        },
+        "university": {
+            "total": 3,
+            "level": "سنتی",
+            "secular": false
+        },
+        "office": {
+            "total": 5,
+            "wages": "کم",
+            "professional": false,
+            "secular": false
+        },
+        "barracks": {
+            "total": 9,
+            "wages": "متوسط",
+            "level": "ابتدایی"
+        },
+        "manors": {
+            "total": 250
+        },
+        "company": {
+            "total": 14
+        },
+        "city": {
+            "total": 4,
+            "next": 0.5499999999999998,
+            "production": 128,
+            "profit": 14.891545081587957
+        },
+        "village": {
+            "total": 225,
+            "production": 1125,
+            "profit": 225
+        }
+    }
 }
 ]
