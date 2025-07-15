@@ -14,7 +14,7 @@
     </div>
 
     <script>
-        const webApp = Telegram.WebApp;
+        const webApp = window.Telegram.WebApp;
 
         function sendRoll(rollType) {
             webApp.sendData(JSON.stringify({ rollType: rollType }));
