@@ -1,158 +1,27 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1">
-    <title>عصر ویکتوریا - وضعیت کشور</title>
-    <link rel="icon" type="image/x-icon" href="./icons/number_of_countries.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sheetdb-js@1.0.3/build/sheetdb-js.min.js"></script>
-    <link rel = "stylesheet" type = "text/css" href = "styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Character Sheet</title>
+    <script src="https://cdn.jsdelivr.net/npm/@telegram-web-app/sdk"></script>
 </head>
-
 <body>
-    <a href="./rules" class="img-btn"><img width="100" height="100" src="./icons/academia.png"/><div>توضیحات بازی</div></a>
-    <a href="./scores" class="img-btn"><img width="100" height="100" src="./icons/corporate_charters.png"/><div>امتیازات لحظه‌ای</div></a>
-    <h1 style="width: 100%; text-align: center; display: flex; align-items: center; justify-content: center; gap:10px">
-        <img width="50" src="./icons/number_of_countries.png" />
-        وضعیت کشور
-    </h1>
-    <h2
-        style="width: 100%; text-align: center; font-size: 16px; display: flex; align-items: center; justify-content: center; gap:10px">
-       
-       <a class="year-btn prev-year"></a> <div id="year"></div> <a class="year-btn next-year"></a>
-    </h2>
-    <div class="container">
-        <!-- بخش دولت -->
-        <div class="section" style="grid-row: span 10 / span 10;">
-            <div class="section-header">
-                <img width="40" src="./icons/government_building_icon.png" />
-                حکومت
-            </div>
-            <div id="government-data"></div>
-        </div>
-        <div class="section" style="grid-row: span 12 / span 12;">
-            <div class="section-header">
-                <img width="40" src="./icons/leading_interest_group_icon.png" />
-                گروه‌های سیاسی
-            </div>
-            <div class="groups-chart-container">
-                
-            </div>
-            <div class="group-image">
-
-            </div>
-            <div id="group-contents">
-                <div
-                    style="display: flex; width: 100%; min-height: 100%; padding:50px 0px; color: gray; align-items: center;justify-content: center;">
-                    روی نمودار کلیک کنید. </div>
-            </div>
-        </div>
-        <!-- نمودار اقشار -->
-
-
-        <div class="section" style="grid-row: span 9 / span 9;">
-            <div class="section-header">
-                <img width="40" src="./icons/innovation.png" />
-                علمی فرهنگی
-            </div>
-            <div id="tech-data"></div>
-        </div>
-        <div class="section" style="grid-row: span 9 / span 10;">
-            <div class="section-header">
-                <img width="40" src="./icons/money.png" />
-                اقتصادی
-            </div>
-            <div id="economy-data"></div>
-        </div>
-        <div class="section" style="grid-row: span 13 / span 13;">
-            <div class="section-header">
-                <img width="40" src="./icons/pops_btn.png" />
-                اقشار جامعه
-            </div>
-            <div id="population-data" class="pops-container">
-            </div>
-        </div>
-
-        <div class="section double" style="grid-row: span 9 / span 9;">
-            <div class="section-header">
-                <img width="40" src="./icons/reactionary_agenda.png" />
-                قوانین
-            </div>
-            <div id="laws-data"></div>
-        </div>
-        <div class="section" style="grid-row: span 11 / span 11; ">
-            <div class="section-header">
-                <img width="40" src="./icons/industrial_expansion.png" />
-                ساختمان‌ها
-            </div>
-            <div id="buildings-data" class="buildings-grid"></div>
-        </div>
-        <div class="section double" style="grid-row: span 11 / span 11;  ">
-            <div class="section-header">
-                <img width="40" src="./icons/egalitarian_agenda.png" />
-                دولتی
-            </div>
-            <div id="public-data"></div>
-        </div>
-        <div class="section" style=" padding: 0; overflow: hidden; grid-row: span 6 / span 7;">
-            <img src="./images/victoria.jpg" class="decorative" />
-        </div>
-        <div class="section" style=" padding: 0; overflow: hidden; grid-row: span 4 / span 5;">
-            <img src="./images/victoria2.jpg" class="decorative" />
-        </div>
-        <div class="section" style=" padding: 0; overflow: hidden; grid-row: span 4 / span 5;">
-            <img src="./images/victoria3.jpg" class="decorative" />
-        </div>
+    <h1>Character Sheet</h1>
+    <div>
+        <button onclick="sendRoll('Charisma Saving Throw')">Charisma Saving Throw</button>
+        <button onclick="sendRoll('Strength Saving Throw')">Strength Saving Throw</button>
     </div>
-    <script src="./js/data.js"></script>
-    <script src="./js/history.js"></script>
-    <script src="./js/helpers.js"></script>
-    <script src="./js/government.js"></script>
-    <script src="./js/groups.js"></script>
-    <script src="./js/economics.js"></script>
-    <script src="./js/population.js"></script>
-    <script src="./js/tech.js"></script>
-    <script src="./js/laws.js"></script>
-    <script src="./js/buildings.js"></script>
-    <script src="./js/public.js"></script>
+
     <script>
-        const colors = ["#5c3f8d", "#a76c9a", "#d7b7c2", "#e8cca1", "#f2e1b5", "#708d3f", "#c4a6a1", "#a8b8d1", "#6a4c94", "#b7a99a", "#e5c3d5", "#a1e8cc", "#8d5c3f", "#b3c7b7"]
+        const webApp = Telegram.WebApp;
 
-
-        // تابع برای ایجاد تب‌های گروه‌ها
-
-
-        // آپدیت تابع رندر کلی
-        function renderAll(data) {
-            renderGovernment(data);
-            renderPoliticalGroups(data);
-            renderEconomics(data);
-            renderTech(data);
-            renderPops(data);
-            renderLaws(data);
-            renderBuildings(data);
-            renderPublic(data);
-            // بقیه توابع...
+        function sendRoll(rollType) {
+            webApp.sendData(JSON.stringify({ rollType: rollType }));
         }
-        renderAll(data)
-        let maxyear = data.year;
-        let year = data.year;
-        document.querySelector(".next-year").addEventListener("click", () => {
-            year = year + 5;
-            if (year == maxyear) renderAll(data);
-            else
-            renderAll(history.find(h => h.year == year));
-        })
-        document.querySelector(".prev-year").addEventListener("click", () => {
-            year = year - 5;
-            if (year > 1795) renderAll(history.find(h => h.year == year));
-        })
+
+        // Initialize Web App UI
+        webApp.ready();
     </script>
 </body>
-
 </html>
