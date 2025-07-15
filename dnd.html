@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Character Sheet</title>
+    <script src="https://cdn.jsdelivr.net/npm/@telegram-web-app/sdk"></script>
+</head>
+<body>
+    <h1>Character Sheet</h1>
+    <div>
+        <button onclick="sendRoll('Charisma Saving Throw')">Charisma Saving Throw</button>
+        <button onclick="sendRoll('Strength Saving Throw')">Strength Saving Throw</button>
+    </div>
+
+    <script>
+        const webApp = Telegram.WebApp;
+
+        function sendRoll(rollType) {
+            webApp.sendData(JSON.stringify({ rollType: rollType }));
+        }
+
+        // Initialize Web App UI
+        webApp.ready();
+    </script>
+</body>
+</html>
