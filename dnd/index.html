@@ -1,3 +1,228 @@
-<iframe 
-  style="width:100%;height:100dvh"
-  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRssLwFHN5rGTaL2wbycqFgGY77YRMMdFBZuNLcffRc9ll9-fz2xpFGdQTvSrTV-7JiZJg39WR2pFAW/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>جدول زمان‌بندی</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+        @import url("https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css");
+
+        body {
+            font-family: "Vazirmatn", sans-serif;
+            background: #f3f4f6;
+            padding: 20px;
+        }
+
+        .table-container {
+            max-width: 900px;
+            margin: auto;
+            
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            direction: rtl;
+            overflow-x: auto;
+            overflow-y: visible;
+        }
+
+        @media screen and (max-width: 600px) {
+
+            body,
+            html {
+                padding: 5px;
+            }
+
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            background: #ffffff;
+            border-radius: 10px;
+        }
+
+        th,
+        td {
+            padding: 0.75em;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+            cursor: pointer;
+            position: relative;
+        }
+
+        thead tr {
+            background-color: #4f46e5;
+            color: white;
+        }
+
+        th {
+            background-color: #4f46e5;
+            color: white;
+        }
+
+        th:first-child {
+            border-top-right-radius: 10px;
+        }
+
+        th:last-child {
+            border-top-left-radius: 10px;
+        }
+        tbody tr:last-child td:first-child {
+            border-bottom-right-radius: 10px;
+        }
+        tbody tr:last-child td:last-child {
+            border-bottom-left-radius: 10px;
+        }
+        tbody tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        td:first-child,
+        th:first-child {
+            position: sticky;
+            right: -15px;
+            background-color: inherit;
+            z-index: 1;
+        }
+
+        .box {
+            display: inline-block;
+            padding: 0.5em 0.75em;
+            border-radius: 8px;
+            font-weight: bold;
+            min-width: 60px;
+        }
+
+        .desc-box {
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+            transform: translateX(15%);
+            background: #333;
+            color: white;
+            padding: 8px;
+            border-radius: 6px;
+            white-space: nowrap;
+            z-index: 10;
+            margin-bottom: -10px;
+            font-size: 14px;
+            min-width: 100%;
+        }
+
+        .desc-box::before {
+            content: "";
+            position: absolute;
+            bottom: -11px;
+            right: calc(50% - 11px);
+            border-width: 6px;
+            border-style: solid;
+            border-color:   #333 transparent transparent transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table-container">
+        <table id="scheduleTable">
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script>
+        // Replace with your "Published CSV" link from Google Sheets
+        const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRssLwFHN5rGTaL2wbycqFgGY77YRMMdFBZuNLcffRc9ll9-fz2xpFGdQTvSrTV-7JiZJg39WR2pFAW/pub?gid=0&single=true&output=csv";
+
+        fetch(CSV_URL)
+            .then(res => res.text())
+            .then(csv => {
+                const rows = csv.trim().split('\n').map(row => row.split(','));
+                const table = document.getElementById("scheduleTable");
+                console.log(rows);
+                const thead = table.querySelector('thead');
+                const tbody = table.querySelector('tbody');
+
+                // Header row
+                const headerRow = document.createElement("tr");
+                rows[0].forEach(cell => {
+                    const th = document.createElement("th");
+                    th.textContent = cell.split('-').map(part => part.trim()).join("\nتا\n");
+                    headerRow.appendChild(th);
+                });
+                thead.appendChild(headerRow);
+
+                // Body rows
+                rows.slice(1, 8).forEach((row, ri) => {
+                    const tr = document.createElement("tr");
+                    row.forEach((cell, col) => {
+                        const td = document.createElement("td");
+                        const box = document.createElement("div");
+                        const desc = rows[ri + 8][col]; // Description start from index 9
+                        box.textContent = parseInt(cell) + 1 ? parseInt(cell).toLocaleString('fa-IR') + " نفر" : cell;
+                        box.className = 'box';
+                        switch (true) {
+                            case (cell >= 6):
+                                box.style.backgroundColor = '#22c55e'; // Green
+                                box.style.color = 'white';
+                                break;
+                            case (cell >= 5):
+                                box.style.backgroundColor = '#88ba31'; // Lime
+                                box.style.color = 'white';
+                                break;
+                            case (cell >= 4):
+                                box.style.backgroundColor = '#eab308'; // Yellow
+                                box.style.color = 'white';
+                                break;
+                            case (cell >= 3):
+                                box.style.backgroundColor = '#f97316'; // Orange
+                                box.style.color = 'black';
+                                break;
+                            case (cell >= 2):
+                                box.style.backgroundColor = '#dc2626'; // Red
+                                box.style.color = 'white';
+                                break;
+                            case (cell >= 1):
+                                box.style.backgroundColor = '#883434'; // Red
+                                box.style.color = 'white';
+                                break;
+
+                            case (cell >= 0):
+                                box.style.backgroundColor = '#555'; // Dark Gray
+                                box.style.color = 'white';
+                                break;
+                            default:
+                        }
+                        td.appendChild(box);
+                        tr.appendChild(td);
+                        if (desc) {
+                            td.addEventListener('mouseenter', () => {
+                                const descBox = document.createElement('div');
+                                descBox.className = 'desc-box';
+                                descBox.innerHTML = desc.split(" - ").filter(s=>s.length).map(d => d.trim()).join("<br>").trim();
+                                descBox.innerHTML = descBox.innerHTML.length ? descBox.innerHTML : "هیچ‌کس";
+                                td.appendChild(descBox);
+                            }
+                            );
+                            td.addEventListener('mouseleave', () => {
+                                const descBox = tr.querySelector('.desc-box');
+                                if (descBox) {
+                                    td.removeChild(descBox);
+                                }
+                            });
+                        }
+                        tbody.appendChild(tr);
+                    });
+                })
+            })
+            .catch(err => {
+                console.error("Error loading CSV", err);
+            });
+    </script>
+</body>
+
+</html>
