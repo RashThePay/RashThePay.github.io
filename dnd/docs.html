@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- wikidot scraper -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D&D5e Wiki</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turndown/7.2.1/turndown.min.js"
+        integrity="sha512-8Po+00YF9yNfZmNwpwzsqKsM1lbkTACbs/TueHeY4x9l6mjWiIu5ONZ8LJ1kbL1FTOqIV25Uyaq1d1+T9cNSmA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <main id="content">
+        <h1>Documentation</h1>
+        <p>This is the documentation page.</p>
+    </main>
+    <script>
+        const MAIN_URL = 'https://dnd5e.wikidot.com';
+        async function scrapeContent(url = "/") {
+            const response = await fetch(`${MAIN_URL}${url}`);
+            const text = await response.text();
+            const parser = new DOMParser();
+            const html = parser.parseFromString(text, 'text/html');
+            const article = html.querySelector('.main-content');
+            const title = article.querySelector('.page-title')
+            title.tagName = "h1";
+            const td = new TurndownService();
+            const md = td.turndown(article.innerHTML);
+            document.getElementById('content').innerText = md;
+        }
+        scrapeContent("/");
+    </script>
+</body>
+</html>
